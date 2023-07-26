@@ -1,0 +1,80 @@
+
+<h1 [align]="position">{{title}}</h1>
+<p>{{productname}}</p>
+<button (click)="productchange()">change the product</button>
+<h4>form</h4>
+<label>Name</label>
+<input type="text" [(ngModel)]="form">
+<p>{{form}}</p>
+<h4>slice pipe</h4>
+<p>{{slicing|slice:1:-2}}</p>
+<h4>Json Pipe</h4>
+<p>{{slicing|json}}</p>
+<h4>currency pipe</h4>
+<p>{{currency|currency:'INR':false}}</p>
+<h4>uppercase</h4>
+<p>{{uppercase|uppercase}}</p>
+<br>
+<p>{{pipes| pipecomponent:number}}</p>
+<input type="text" [(ngModel)]="pipes">
+<input type="number" [(ngModel)]="number"> 
+
+<h4>multiple pipe</h4>
+
+<div>{{ multiplepipe | slice: 2:4 }}</div>
+<div *ngFor="let multiple of multiplepipe">
+    {{multiple|lowercase}}
+</div>
+<br>
+<h4>Structural directive ngif,ngfor,ngswitch</h4>
+<p>List of countries</p>  
+<div *ngIf="countries.length>0;else ArrayEmpty">
+<ul *ngFor="let data of countries">
+    <li>{{data}}</li>
+</ul>
+</div>
+<ng-template #ArrayEmpty>There is no country</ng-template>
+<br>
+
+<button (click)="switchcasevalue='countries'" >view Countries</button>
+<button (click)="switchcasevalue='states'" >view States</button>
+<button (click)="switchcasevalue='district'">view district</button>
+<div [ngSwitch]="switchcasevalue">
+    <div *ngSwitchCase="'countries'">
+        <ul *ngFor="let item of countries">
+            <li>{{item}}</li>
+        </ul>     
+    </div>
+    <div *ngSwitchCase="'states'">
+        <ul *ngFor="let item of states">
+            <li>{{item}}</li>
+        </ul>     
+    </div>
+    <div *ngSwitchCase="'district'">
+        <ul *ngFor="let item of District">
+            <li>{{item}}</li>
+        </ul>     
+    </div>
+</div>
+
+<h4>ngstyle-Attribute-directive</h4>
+<element [ngStyle]='{background:"red"}'>
+    This is ngstyle Attribute Directives
+</element>
+
+<h4>ngclass-Attribute-directive</h4>
+<element [ngClass]="'expression'">
+    This is ngclass Attribute Directives
+</element>
+<br>
+<br>
+<input type="text" [ngClass]="{'der':isValid}" />
+<p appDirectives [buttonstatus]="buttonclicked">Inbuild directive</p>
+<br>
+<div>
+<button appTooltip="Click me to submit">Submit</button> 
+</div>
+<br>
+<h4>Routing</h4>
+<button [routerLink]="['nextpage']">move to next page</button>
+

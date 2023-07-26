@@ -1,0 +1,71 @@
+<!-- <p>employee works!</p>
+<form
+    #userForm="ngForm"  (ngSubmit)="onSubmit(userForm)">
+    <div class="col-md-4 mb-2">
+        <div class="form-group">
+          <label class="form-label fs-1">EmployeeName</label>
+          <input type="text" class="form-control" name="employeeName" #name="ngModel" pattern="^[A-Za-z]{5,20}$"  placeholder="Name" required ngModel> 
+          <div *ngIf="name.invalid && name.touched">
+              <small class="text-danger" *ngIf="name.errors?.['required']">name is required</small>
+              <small class="text-danger" *ngIf="name.errors?.['pattern']">Name should have only alphabets and minimum 5-20 characters</small>
+            </div>    
+     </div>
+     <div class="form-group">
+        <label> Gender</label><br>
+        <input  type="radio" name="genderId" value= 1 required ngModel #gender="ngModel">Male &nbsp;
+        <input  type="radio" name="genderId" value= 2 required ngModel #gender="ngModel">Female
+      </div> 
+    </div>
+    <div class="form-group">
+        <label>Date Of Birth</label>
+        <input type="date" #date="ngModel" class="form-control" required
+        name="dateOfBirth" ngModel> 
+        <div *ngIf="!date.invalid && date.touched">
+          <small class="text-danger" *ngIf="date.errors?.['required']">Date of Birth is required</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Date Of Joining</label>
+        <input type="date" #dateofjoining="ngModel" class="form-control" required
+        name="dateofjoining" ngModel> 
+        <div *ngIf="!dateofjoining.invalid && dateofjoining.touched">
+          <small class="text-danger" *ngIf="dateofjoining.errors?.['required']">Date of Joining is required</small>
+        </div>
+      </div>
+    <div class="form-group">
+        <label class="form-label fs-1">Email</label>
+        <input type="text" #email="ngModel" class="form-control" name="email" ngModel  placeholder="Email" required> 
+        <div *ngIf="email.invalid && email.touched">
+            <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>        
+          </div>    
+   </div>
+   <div class="form-group">
+    <label class="form-label fs-1">Password</label>
+    <input type="text" #password="ngModel" class="form-control" name="password" ngModel  placeholder="password" required> 
+    <div *ngIf="password.invalid && password.touched">
+        <small class="text-danger" *ngIf="password.errors?.['required']">password is required</small>        
+      </div>    
+</div>
+   <button [disabled]="userForm.invalid"  type="submit" class="btn btn-primary">submit</button>
+</form> -->
+
+<table >
+    <tr>
+        <th>EmployeeName</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Date of Joining</th>
+        <th>Age</th>
+        <th>Gender</th>
+        
+    </tr>
+    <tr *ngFor="let item of employee">
+        <td>{{item.employeeName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.dateOfBirth}}</td>
+        <td>{{item.dateOfJoining}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.genderId.name}}</td>
+       
+    </tr>
+</table>

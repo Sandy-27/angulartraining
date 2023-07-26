@@ -1,0 +1,27 @@
+<h1>{{name}}</h1>
+<input type="text" [(ngModel)]="name">
+<button (click)="update()">Update</button>
+
+<table>
+    <thead>
+        <tr>
+    <th>ID</th>
+    <th>color</th>
+    <th>price</th>
+        </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let item of data">
+<td>{{item.id}}</td>
+<td><a class="btntag tag-blue" routerLinkActive="active"
+    [routerLink]="['/nextpage',item.id]">{{item.color}}</a></td>
+<td>{{item.price}}</td>
+
+    </tr>
+</tbody>
+</table>
+
+<div>{{error}}</div>
+<br>
+<button (click)="formspage()">rout to next page</button>
+
